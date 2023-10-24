@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="alert " [ngClass]="score>=50?'alert-success':'alert-danger'" role="alert">
+        You scored {{score}} %
+    </div>
+    <ul>
+        <li *ngFor="let e of errs">
+            <h1>{{e}}</h1>
+        </li>
+    </ul>
+</div>

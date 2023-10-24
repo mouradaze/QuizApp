@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="alert " [ngClass]="score>=50?'alert-success':'alert-danger'" role="alert" *ngIf="show">
+        You scored {{score}} %
+        <button class="btn btn-outline-primary" *ngIf="score<50">Try again</button>
+    </div>
+    
+    <div class="row my-5"  *ngFor="let qst of questions; let n = index">
+        <div class="col-md-6">
+            <h5>{{n+1}}- {{qst.qst}}</h5>
+
+            <ul >
+                
+                <li class="form-check" *ngFor="let sel of qst.options">
+                    <input class="form-check-input" (change)="selected[n] = sel" name="radio{{n}}" type="radio" id="{{sel}}">
+                    <label class="form-check-label" for="{{sel}}">
+                    {{sel}}
+                    </label>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <button class="btn btn-outline-primary" (click)="handleQst()">Submit</button>
+    
+</div>
